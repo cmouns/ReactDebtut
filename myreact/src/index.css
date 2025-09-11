@@ -65,4 +65,11 @@ button:focus-visible {
   button {
     background-color: #f9f9f9;
   }
+
+  
 }
+
+h1.styled {
+    color: red;
+    text-transform: uppercase;
+  }
