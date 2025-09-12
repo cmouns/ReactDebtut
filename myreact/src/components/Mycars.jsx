@@ -7,7 +7,7 @@ class Mycars extends Component {
             {
                 marque : 'Ford',
                 couleur: 'Vert',
-                annee : '2012'
+                annee : '2024'
             },
             {
                 marque : 'Toyota',
@@ -25,29 +25,57 @@ class Mycars extends Component {
 addTenYears= () => {
     const updateState = this.state.catalogueVoiture.map((param) => {
         return param.annee -=10;
+
     })
     this.setState({
         updateState
     })
 }
-    
+
+getAge = annee => {
+const now = new Date().getFullYear();
+const age= now- annee;
+
+let frenchYearStr = "";
+    if (age === 1) {
+        frenchYearStr= "an";
+    }else if (age > 1) {
+        frenchYearStr = "ans";
+    }else if (age <= 0){
+        frenchYearStr = "Pas encore sortie";
+         return `${frenchYearStr}`;
+    }
+    return `${age} ${frenchYearStr}`;
+}
 
         
     
 
     render() {
+        
         return (
             <div>
-                <h1>{this.props.title}</h1>
-                    
-                <Car year= {this.state.catalogueVoiture[0].annee} color={this.state.catalogueVoiture[0].couleur}>{this.state.catalogueVoiture[0].marque}</Car>
-                <Car year= {this.state.catalogueVoiture[1].annee} color={this.state.catalogueVoiture[1].couleur}>{this.state.catalogueVoiture[1].marque}</Car>
-                <Car year= {this.state.catalogueVoiture[2].annee} color={this.state.catalogueVoiture[2].couleur}>{this.state.catalogueVoiture[2].marque}</Car>
+            <h1>{this.props.title}</h1>
             <button onClick={this.addTenYears}> + 10 ans </button>
+            {
+                this.state.catalogueVoiture.map(({marque, couleur, annee}, index) => (
+                <div key={index}>
+                    <Car 
+                    year={annee}
+                    color={couleur}
+                    age={this.getAge(annee)}
+                    >
+                    {marque}
+                    </Car>
+                </div>
+                ))
+            }
             </div>
-           
         )
+        
+    
     }
 }
+
 
 export default Mycars
