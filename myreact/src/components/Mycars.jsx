@@ -1,5 +1,6 @@
 import { Component } from 'react'
 import Car from './Cars'
+import Welcome from './Welcome'
 
 class Mycars extends Component {
     state = {
@@ -25,14 +26,14 @@ class Mycars extends Component {
 addTenYears= () => {
     const updateState = this.state.catalogueVoiture.map((param) => {
         return param.annee -=10;
-
     })
+
     this.setState({
         updateState
     })
 }
 
-getAge = annee => {
+getAge = (annee)=> {
 const now = new Date().getFullYear();
 const age= now- annee;
 
@@ -47,9 +48,6 @@ let frenchYearStr = "";
     }
     return `${age} ${frenchYearStr}`;
 }
-
-        
-    
 
     render() {
         
@@ -70,6 +68,7 @@ let frenchYearStr = "";
                 </div>
                 ))
             }
+            <Welcome></Welcome>
             </div>
         )
         
