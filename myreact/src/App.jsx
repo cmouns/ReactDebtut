@@ -2,6 +2,8 @@ import { Component } from 'react';
 import Mycars from './components/Mycars';
 import './App.css';
 import Maman from './components/Maman';
+import Mamanbis from './components/Mamanbis'
+import Form from './components/Form';
 
 
 class App extends Component {
@@ -18,6 +20,10 @@ class App extends Component {
         <Maman>
           
         </Maman>
+        <Mamanbis>
+          
+        </Mamanbis>
+        <Form />
       </div>
 
 

@@ -10,6 +10,11 @@ class Maman extends Component {
     
 ordreMaman = () => {
      this.setState({messageMaman : 'Va ranger ta chambre'});
+           {console.log(this.state)}
+}
+
+ reponseToto = () => {
+     this.setState({messageToto : 'Non !'});
 }
 
 render() {
@@ -18,7 +23,7 @@ render() {
       <h1>Maman</h1>
       <button onClick={this.ordreMaman}>Ordre de la maman</button>
       <p>{this.state.messageMaman}</p>
-      <Toto name="Toto" />
+      <Toto name="Toto" stateParent={this.state} reponseToto = {this.reponseToto}/>
 
     </div>
   )
